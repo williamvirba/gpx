@@ -16,8 +16,8 @@ uploaded_file = st.file_uploader("Upload a file", type=("gpx"))
 #df=gpxtolist(file_bytes)
 
 if uploaded_file is not None:
-    df=gpxtolist(uploaded_file)
-    df=pd.DataFrame(df)
+    df=pd.DataFrame(gpxtolist(uploaded_file))
+    
     st.dataframe(df.iloc[: , :20])
 
 #pd.DataFrame
