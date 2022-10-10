@@ -12,17 +12,19 @@ import tilemapbase
 
 #streamlit run pythonfile.py into terminal streamlit run trackstream.py
 
-file_bytes = st.file_uploader("Upload a file", type=("gpx"))
-df=gpxtolist(file_bytes)
+uploaded_file = st.file_uploader("Upload a file", type=("gpx"))
+#df=gpxtolist(file_bytes)
 
-
+if uploaded_file is not None:
+    df=pd.DataFrame(uploaded_file)
+    st.dataframe(df_selection.iloc[: , :20])
 
 #pd.DataFrame
 #df = pd.DataFrame(gpxtolist("99_MMM_2022.gpx"))
 
-st.set_page_config(page_title=df["name"][0],page_icon=":bar_chart:", layout="wide")
+#st.set_page_config(page_title=df["name"][0],page_icon=":bar_chart:", layout="wide")
 
-st.dataframe(df_selection.iloc[: , :20])
+
 
 
 
