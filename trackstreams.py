@@ -17,7 +17,7 @@ uploaded_file = st.file_uploader("Upload a file", type=("gpx"))
 
 if uploaded_file is not None:
     df=pd.DataFrame(uploaded_file)
-    st.dataframe(df_selection.iloc[: , :20])
+    st.dataframe(df.iloc[: , :20])
 
 #pd.DataFrame
 #df = pd.DataFrame(gpxtolist("99_MMM_2022.gpx"))
