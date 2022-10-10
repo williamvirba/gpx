@@ -13,11 +13,12 @@ import tilemapbase
 #streamlit run pythonfile.py into terminal streamlit run trackstream.py
 
 uploaded_file = st.file_uploader("Upload a file", type=("gpx"))
+
 #df=gpxtolist(file_bytes)
 
 if uploaded_file is not None:
-    df=pd.DataFrame(gpxtolist(uploaded_file))
-    
+    gpx = gpxpy.parse(uploaded_file)
+    df=pd.DataFrame(gpxtolist(gpx))
     st.dataframe(df)
 
 #pd.DataFrame
